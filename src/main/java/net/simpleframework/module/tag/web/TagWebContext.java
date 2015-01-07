@@ -25,7 +25,7 @@ public class TagWebContext extends TagContext {
 		return ModuleFunctions.of(FUNC_TAGS);
 	}
 
-	public static final WebModuleFunction FUNC_TAGS = (WebModuleFunction) new WebModuleFunction(
+	public final WebModuleFunction FUNC_TAGS = (WebModuleFunction) new WebModuleFunction(this,
 			TagsPage.class).setName(MODULE_NAME + "-TagsPage").setText($m("TagContext.1"))
 			.setDisabled(true);
 }
