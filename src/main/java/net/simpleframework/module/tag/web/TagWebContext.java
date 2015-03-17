@@ -1,7 +1,6 @@
 package net.simpleframework.module.tag.web;
 
 import static net.simpleframework.common.I18n.$m;
-import net.simpleframework.ctx.Module;
 import net.simpleframework.ctx.ModuleFunctions;
 import net.simpleframework.module.tag.impl.TagContext;
 import net.simpleframework.module.tag.web.page.TagsPage;
@@ -16,16 +15,8 @@ import net.simpleframework.mvc.ctx.WebModuleFunction;
 public class TagWebContext extends TagContext {
 
 	@Override
-	protected Module createModule() {
-		return super.createModule().setDefaultFunction(FUNC_TAGS);
-	}
-
-	@Override
 	protected ModuleFunctions getFunctions() {
-		return ModuleFunctions.of(FUNC_TAGS);
+		return ModuleFunctions.of((WebModuleFunction) new WebModuleFunction(this, TagsPage.class)
+				.setName(MODULE_NAME + "-TagsPage").setText($m("TagContext.1")).setDisabled(true));
 	}
-
-	public final WebModuleFunction FUNC_TAGS = (WebModuleFunction) new WebModuleFunction(this,
-			TagsPage.class).setName(MODULE_NAME + "-TagsPage").setText($m("TagContext.1"))
-			.setDisabled(true);
 }
