@@ -1,6 +1,7 @@
 package net.simpleframework.module.tag.web;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.ctx.ModuleFunctions;
 import net.simpleframework.module.tag.impl.TagContext;
 import net.simpleframework.module.tag.web.page.TagsPage;
